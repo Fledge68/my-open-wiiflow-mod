@@ -376,8 +376,6 @@ static const char *getVideoPath(const string &videoDir, const char *videoId)
 
 static const char *getVideoDefaultPath(const string &videoDir)
 {
-	//char PluginMagicWord[9];
-	//memset(PluginMagicWord, 0, sizeof(PluginMagicWord));
 	strncpy(m_plugin.PluginMagicWord, fmt("%08x", CoverFlow.getHdr()->settings[0]), 8);
 	const char *videoPath = fmt("%s/%s", videoDir.c_str(), m_plugin.PluginMagicWord);
 	return videoPath;
@@ -597,8 +595,6 @@ void CMenu::_game(bool launch)
 						m_plugin.GetEnabledPlugins(m_cfg, &enabledPluginsCount);
 						if(enabledPluginsCount == 1)
 						{
-							//char PluginMagicWord[9];
-							//memset(PluginMagicWord, 0, sizeof(PluginMagicWord));
 							strncpy(m_plugin.PluginMagicWord, fmt("%08x", hdr->settings[0]), 8);
 							currentPartition = m_cfg.getInt("PLUGINS_PARTITION", m_plugin.PluginMagicWord, 1);
 							m_cfg.setInt(PLUGIN_DOMAIN, "partition", currentPartition);
